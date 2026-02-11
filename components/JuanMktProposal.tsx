@@ -1,58 +1,56 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { 
   Calculator, Zap, TrendingUp, ShieldCheck, ArrowRight, X, Menu, 
   Check, ChevronRight, BarChart3, Fingerprint, Users, GraduationCap, 
   Briefcase, Info, Gift, CalendarClock, MessageCircle, Tag, Award, 
-  Database, Trophy, Star, Rocket, LineChart, ShoppingBag, Target, Wallet 
+  Database, Trophy, Star, Rocket, LineChart, ShoppingBag, Target, Wallet,
+  AlertTriangle, CheckCircle2, Microscope
 } from 'lucide-react';
-
-interface FeeState {
-  base: number;
-  variable: number;
-  percent: number;
-  total: number;
-  tier: string;
-}
 
 const JuanMktProposal: React.FC = () => {
   // State for Calculator
-  const [investment, setInvestment] = useState<number>(5000);
-  const [fee, setFee] = useState<FeeState>({ base: 0, variable: 0, percent: 0, total: 0, tier: '' });
-  // Note: isMenuOpen is defined in original code but not used in the layout provided, keeping for compatibility
-  const [isMenuOpen, setIsMenuOpen] = useState<boolean>(false);
+  const [investment, setInvestment] = useState<number>(1000);
 
-  // Fee Logic
-  useEffect(() => {
-    let base = 0;
-    let variablePercent = 0;
-    let tierName = '';
+  // Derive plan from investment
+  const getPlanFromInvestment = (inv: number): 'starter' | 'growth' | 'scale' => {
+    if (inv <= 3000) return 'starter';
+    if (inv <= 15000) return 'growth';
+    return 'scale';
+  };
 
-    if (investment <= 3000) {
-      base = 500;
-      variablePercent = 0;
-      tierName = 'VALIDATION';
-    } else if (investment <= 15000) {
-      base = 600;
-      variablePercent = 0.10;
-      tierName = 'GROWTH';
-    } else if (investment <= 50000) {
-      base = 1000;
-      variablePercent = 0.08;
-      tierName = 'SCALING';
-    } else {
-      tierName = 'ENTERPRISE'; // Logic handled in render
+  const activePlanKey = getPlanFromInvestment(investment);
+
+  const plans = {
+    starter: { 
+      name: 'Starter', 
+      range: '$0–$3k', 
+      base: 500, 
+      varPct: 0, 
+      desc: 'Para marcas que ya venden y buscan orden.',
+      defaultInv: 1000
+    },
+    growth: { 
+      name: 'Growth', 
+      range: '$3k–$15k', 
+      base: 600, 
+      varPct: 10, 
+      desc: 'Escalamiento agresivo.',
+      defaultInv: 5000
+    },
+    scale: { 
+      name: 'Scale', 
+      range: '$15k+', 
+      base: 1000, 
+      varPct: 8, 
+      desc: 'Dominio de mercado.',
+      defaultInv: 20000
     }
+  };
 
-    const variable = investment * variablePercent;
-    
-    setFee({
-      base,
-      variable,
-      percent: variablePercent * 100,
-      total: base + variable,
-      tier: tierName
-    });
-  }, [investment]);
+  const currentPlan = plans[activePlanKey];
+  const variableFee = (investment * currentPlan.varPct) / 100;
+  const month1Total = currentPlan.base;
+  const month2Total = currentPlan.base + variableFee;
 
   const formatCurrency = (val: number) => new Intl.NumberFormat('en-US', { style: 'currency', currency: 'USD', maximumFractionDigits: 0 }).format(val);
 
@@ -62,13 +60,25 @@ const JuanMktProposal: React.FC = () => {
     whatsapp_mentoria: "https://wa.link/4fvitd", 
     whatsapp_consultoria: "https://wa.link/r030oa" 
   };
+  
+  // Custom WhatsApp link generation for Calculator
+  // NOTE: Replace '573000000000' with the real phone number for the pre-filled message to work correctly via wa.me
+  const phoneNumber = "573000000000"; 
+  const whatsappMessage = `Hola quiero aplicar al modelo de escalamiento.
 
+Tienda: [link]
+Inversión mensual en Ads: ${formatCurrency(investment)}
+Plan de interés: ${currentPlan.name}
+Objetivo en 90 días: [meta]`;
+  const whatsappCalculatorLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
+
+  // --- CREDENTIALS (5 ITEMS COMPLETE) ---
   const credentials = [
     { type: 'badge', title: 'Trayectoria', desc: '+5 Años Exp.', url: '' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3Njg0MTU0ODEsImV4cCI6MTc5OTk1MTQ4MX0.GE1D06c7mnC9oPX7-0Gi-bOFGRyOLhgxehSPiSC3e0w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3Njg0MTU1MjgsImV4cCI6MTc5OTk1MTUyOH0.680E65-OYHsWn8Iol_2KiMmBR33pBY5w5gZSQ_CDefw", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3Njg0MTU1MzksImV4cCI6MTc5OTk1MTUzOX0.1Q5WoWsktOG57-bBgQ9_gOfvC1nUlRkaEPcNSg0sefo", title: 'Certificado Pro', desc: 'Media Buying' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3Njg0MTU1NzMsImV4cCI6MTc5OTk1MTU3M30.DVcP9EcDgihA-yE6uqRRB6BcESNgemS2Cepqlk2E6ps", title: 'Insignia Meta', desc: 'Facebook & IG Ads' }
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' },
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs", title: 'Certificado Pro', desc: 'Media Buying' },
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo", title: 'Insignia Meta', desc: 'Facebook & IG Ads' }
   ];
 
   return (
@@ -295,133 +305,290 @@ const JuanMktProposal: React.FC = () => {
             </div>
         </section>
 
-        {/* SECTION 2: CALCULATOR */}
-        <section className="relative px-0 md:px-6 w-full z-10">
-          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/10 to-transparent rounded-[3rem] -z-10 blur-3xl pointer-events-none"></div>
-          
-          <div className="text-center mb-8 md:mb-12 px-4 relative z-10">
-            <h2 className="text-2xl md:text-4xl font-bold text-white mb-2 md:mb-4">Calculadora de Inversión</h2>
-            <p className="text-xs md:text-base text-slate-400 max-w-xl mx-auto">Desliza la barra para simular tu presupuesto de publicidad.</p>
-          </div>
+        {/* SECTION 2: CALCULATOR (UPDATED MODELO DE ESCALAMIENTO) */}
+        <section id="modelo-escalamiento" className="py-20 px-4 md:px-6 relative z-10">
+          <div className="absolute inset-0 bg-gradient-to-b from-blue-900/5 to-transparent -z-10 blur-3xl pointer-events-none"></div>
+          <div className="max-w-5xl mx-auto">
+            {/* Header */}
+            <div className="text-center mb-12">
+               <div className="inline-block px-3 py-1 border border-white/10 rounded-full text-slate-400 text-xs tracking-widest uppercase mb-4 bg-white/5">
+                  Modelo de Trabajo
+               </div>
+               <h2 className="text-3xl md:text-5xl font-bold text-white mb-6">
+                  Modelo de Escalamiento <br/>
+                  <span className="text-blue-500">(Base + Variable)</span>
+               </h2>
+               <p className="text-slate-400 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
+                  Esto no es “cobro por anuncios”. Es un sistema de gestión y escalamiento. <br/>
+                  <strong className="text-white">Trabajamos con marcas que se adaptan a la estructura</strong> (no al revés).
+               </p>
+            </div>
 
-          <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl md:rounded-3xl p-3 md:p-10 shadow-2xl relative overflow-hidden mx-2 md:mx-auto max-w-5xl w-full">
-            {/* NOISE BG - Pointer events none */}
-            <div className="absolute top-0 right-0 w-full h-1 bg-gradient-to-r from-transparent via-blue-600 to-transparent opacity-50 pointer-events-none"></div>
-
-            <div className="grid lg:grid-cols-12 gap-6 md:gap-10 relative z-10">
-              {/* SLIDER & TABLE */}
-              <div className="lg:col-span-7 space-y-6 md:space-y-8">
-                <div className="bg-white/5 p-4 rounded-2xl border border-white/5 w-full">
-                  <label className="text-[10px] md:text-sm font-bold text-blue-400 uppercase tracking-wider mb-2 block">1. TU PRESUPUESTO MENSUAL EN ADS</label>
-                  <div className="flex flex-col md:flex-row md:items-center justify-between mb-4">
-                     <span className="text-[10px] md:text-xs text-slate-500">¿Cuánto pagas a Facebook/Google?</span>
-                     <span className="text-xl md:text-3xl font-bold text-white tracking-tight">{formatCurrency(investment)}</span>
+            {/* Filter Cards */}
+            <div className="grid md:grid-cols-2 gap-4 max-w-3xl mx-auto mb-12">
+               <div className="bg-emerald-900/10 border border-emerald-500/20 p-4 rounded-xl flex items-start gap-3">
+                  <CheckCircle2 className="w-5 h-5 text-emerald-500 mt-0.5 shrink-0" />
+                  <div>
+                     <h4 className="text-xs font-bold text-emerald-400 uppercase mb-1">Requisito Recomendado</h4>
+                     <p className="text-xs text-slate-400">Inversión mínima en Ads: <strong className="text-white">$1,000 USD/mes</strong></p>
                   </div>
-                  <input type="range" min="1000" max="60000" step="500" value={investment} onChange={(e) => setInvestment(Number(e.target.value))} className="w-full h-2 md:h-3 bg-slate-800 rounded-full appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400 transition-all relative z-50 pointer-events-auto"/>
-                </div>
+               </div>
+               <div className="bg-yellow-900/10 border border-yellow-500/20 p-4 rounded-xl flex items-start gap-3">
+                  <AlertTriangle className="w-5 h-5 text-yellow-500 mt-0.5 shrink-0" />
+                  <div>
+                     <h4 className="text-xs font-bold text-yellow-500 uppercase mb-1">Importante</h4>
+                     <p className="text-xs text-slate-400">Si tu inversión es muy baja y la base te obliga a recortar pauta, <strong className="text-white">este modelo no es para ti</strong>.</p>
+                  </div>
+               </div>
+            </div>
 
-                <div className="w-full overflow-x-auto rounded-xl border border-white/10 scrollbar-hide relative z-20 pointer-events-auto">
-                  <table className="w-full text-left text-[10px] md:text-sm border-collapse min-w-[280px]">
-                    <thead className="bg-slate-900 text-slate-400 font-bold uppercase text-[9px]">
-                      <tr><th className="p-2 border-b border-white/10">Plan</th><th className="p-2 border-b border-white/10">Rango</th><th className="p-2 border-b border-white/10 text-center">Base</th><th className="p-2 border-b border-white/10 text-center">Var.</th></tr>
-                    </thead>
-                    <tbody className="divide-y divide-white/5 bg-black">
-                      <tr className={`${fee.tier === 'VALIDATION' ? 'bg-emerald-500/10' : ''}`}><td className="p-2 flex gap-1 items-center">{fee.tier === 'VALIDATION' && <Check className="w-3 h-3"/>} Starter</td><td className="p-2 text-slate-500">$0-$3k</td><td className="p-2 text-center font-mono">$500</td><td className="p-2 text-center">0%</td></tr>
-                      <tr className={`${fee.tier === 'GROWTH' ? 'bg-blue-600/10' : ''}`}><td className="p-2 flex gap-1 items-center">{fee.tier === 'GROWTH' && <Check className="w-3 h-3"/>} Growth</td><td className="p-2 text-slate-500">$3k-$15k</td><td className="p-2 text-center font-mono">$600</td><td className="p-2 text-center">10%</td></tr>
-                      <tr className={`${fee.tier === 'SCALING' ? 'bg-purple-600/10' : ''}`}><td className="p-2 flex gap-1 items-center">{fee.tier === 'SCALING' && <Check className="w-3 h-3"/>} Scale</td><td className="p-2 text-slate-500">$15k+</td><td className="p-2 text-center font-mono">$1k</td><td className="p-2 text-center">8%</td></tr>
-                    </tbody>
-                  </table>
-                </div>
-              </div>
+            {/* Logic Explanation */}
+            <div className="flex flex-wrap justify-center gap-4 md:gap-8 text-xs md:text-sm text-slate-400 mb-12 text-center">
+               <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/5">
+                  <strong className="text-white">Base:</strong> Gestión + Sistema + Ejecución
+               </div>
+               <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/5">
+                  <strong className="text-white">Variable:</strong> % sobre inversión (Alineación)
+               </div>
+               <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/5">
+                  <strong className="text-white">Mes 1:</strong> Instalación del sistema (Sin Variable)
+               </div>
+            </div>
 
-              {/* RECEIPT */}
-              <div className="lg:col-span-5 w-full bg-gradient-to-br from-slate-900 to-black rounded-2xl p-4 border border-blue-500/20 shadow-xl flex flex-col justify-between relative overflow-hidden">
-                 {fee.tier === 'ENTERPRISE' ? (
-                    <div className="text-center py-4 space-y-4">
-                      <h3 className="text-xl font-bold text-white">Plan Enterprise</h3>
-                      <p className="text-xs text-slate-400">Tu inversión supera nuestro modelo estándar.</p>
-                      {/* BOTON ENTERPRISE */}
-                      <a href={links.whatsapp_general} target="_blank" rel="noopener noreferrer" className="relative z-50 pointer-events-auto bg-white text-black font-bold py-3 px-6 rounded-full hover:bg-blue-50 flex items-center justify-center gap-2 text-sm w-full cursor-pointer">
-                        <MessageCircle className="w-4 h-4" /> Agendar Reunión
-                      </a>
-                    </div>
-                 ) : (
-                   <>
-                    <div className="space-y-4 mt-2">
-                       {fee.tier !== 'VALIDATION' && (
-                        <div className="bg-emerald-900/20 border border-emerald-500/30 rounded-lg p-2 flex gap-2 items-start">
-                            <Gift className="w-4 h-4 text-emerald-400 mt-0.5 flex-shrink-0" />
-                            <div><h4 className="text-[10px] font-bold text-emerald-400 uppercase">Promo Activada</h4><p className="text-[9px] text-slate-400">1er mes sin comisión variable.</p></div>
+            {/* Main Panel */}
+            <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl md:rounded-3xl p-4 md:p-8 shadow-2xl relative overflow-hidden">
+               <div className="grid lg:grid-cols-12 gap-8 md:gap-12">
+                  
+                  {/* Left Column: Input & Plans */}
+                  <div className="lg:col-span-7 space-y-8">
+                     {/* Slider */}
+                     <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
+                        <div className="flex justify-between items-end mb-6">
+                           <div>
+                              <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">1. Tu inversión mensual en Ads</p>
+                              <p className="text-xs text-slate-500">¿Cuánto inviertes hoy en Meta/Google?</p>
+                           </div>
+                           <div className="text-3xl font-bold text-white tracking-tight">{formatCurrency(investment)}</div>
                         </div>
-                      )}
-                      <div className="bg-white/5 rounded-lg p-3 space-y-2">
-                          <div className="flex justify-between"><span className="text-xs text-slate-400">Base</span><span className="text-sm font-mono text-white">{formatCurrency(fee.base)}</span></div>
-                          <div className="flex justify-between"><span className="text-xs text-slate-400">Variable</span><span className="text-sm font-mono text-blue-400">{formatCurrency(fee.variable)}</span></div>
-                      </div>
-                    </div>
-                    <div className="mt-4 pt-4 border-t border-dashed border-white/10">
-                      <div className="flex justify-between items-end mb-4">
-                         <div className="text-left"><span className="text-[9px] text-emerald-400 font-bold uppercase block">Primer Mes</span><span className="text-3xl font-black text-white">{formatCurrency(fee.base)}</span></div>
-                         <div className="text-right"><span className="text-[9px] text-slate-500 uppercase block">Mes 2+</span><span className="text-sm font-bold text-slate-400">{formatCurrency(fee.total)}</span></div>
-                      </div>
-                      {/* BOTON CALCULADORA - IMPORTANTE Z-50 */}
-                      <a href={links.whatsapp_general} target="_blank" rel="noopener noreferrer" className="relative z-50 pointer-events-auto bg-blue-600 hover:bg-blue-500 text-white font-bold py-3 w-full rounded-xl flex items-center justify-center gap-2 text-sm cursor-pointer shadow-lg">
-                        <MessageCircle className="w-4 h-4" /> Confirmar Plan <ArrowRight className="w-4 h-4" />
-                      </a>
-                    </div>
-                   </>
-                 )}
-              </div>
+                        <input 
+                          type="range" 
+                          min="0" 
+                          max="20000" 
+                          step="250" 
+                          value={investment} 
+                          onChange={(e) => setInvestment(Number(e.target.value))}
+                          className="w-full h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400 transition-all"
+                        />
+                        <div className="flex justify-between mt-3 text-xs text-slate-500 font-mono">
+                           <span>$0</span><span>$5k</span><span>$10k</span><span>$15k</span><span>$20k+</span>
+                        </div>
+                     </div>
+
+                     {/* Plans Selection */}
+                     <div className="space-y-3">
+                        {Object.entries(plans).map(([key, plan]) => (
+                           <button
+                              key={key}
+                              onClick={() => setInvestment(plan.defaultInv)}
+                              className={`w-full flex items-center justify-between p-4 rounded-xl border transition-all text-left group ${
+                                 activePlanKey === key 
+                                 ? 'bg-blue-600/10 border-blue-500/50 shadow-[0_0_20px_rgba(37,99,235,0.1)]' 
+                                 : 'bg-white/5 border-white/5 hover:bg-white/10 hover:border-white/10'
+                              }`}
+                           >
+                              <div className="flex flex-col">
+                                 <span className={`font-bold text-sm ${activePlanKey === key ? 'text-white' : 'text-slate-300'}`}>{plan.name}</span>
+                                 <span className="text-xs text-slate-500">{plan.range}</span>
+                              </div>
+                              <div className="flex items-center gap-6">
+                                 <div className="text-right">
+                                    <span className={`block font-mono text-sm ${activePlanKey === key ? 'text-white' : 'text-slate-400'}`}>${plan.base}</span>
+                                    <span className="text-[10px] text-slate-500 uppercase">Base</span>
+                                 </div>
+                                 <div className="text-right w-16">
+                                    <span className={`block font-mono text-sm ${activePlanKey === key ? 'text-blue-400' : 'text-slate-400'}`}>{plan.varPct}%</span>
+                                    <span className="text-[10px] text-slate-500 uppercase">Variable</span>
+                                 </div>
+                              </div>
+                           </button>
+                        ))}
+                        <p className="text-xs text-slate-500 mt-4 px-2 leading-relaxed">
+                           <Info className="w-3 h-3 inline mr-1" />
+                           {plans[activePlanKey].desc} 
+                           {activePlanKey === 'starter' && <span className="block mt-1 text-slate-400">No es un plan "barato": es para quien puede sostener la base sin sacrificar inversión.</span>}
+                        </p>
+                     </div>
+                  </div>
+
+                  {/* Right Column: Summary */}
+                  <div className="lg:col-span-5 flex flex-col justify-between">
+                     <div className="bg-gradient-to-br from-slate-900 to-black border border-blue-500/20 rounded-2xl p-6 h-full relative overflow-hidden">
+                        {/* Promo Badge */}
+                        <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3 mb-6">
+                           <div className="text-[10px] font-bold text-blue-400 uppercase tracking-wider mb-1">MES 1: INSTALACIÓN</div>
+                           <p className="text-xs text-slate-400 leading-relaxed">Primer mes sin variable. Ordenamos estructura, señales y sistema de testeo antes de escalar.</p>
+                        </div>
+
+                        <div className="space-y-4 mb-8">
+                           <div className="flex justify-between text-sm text-slate-400">
+                              <span>Fee Base</span>
+                              <strong className="text-white">{formatCurrency(currentPlan.base)}</strong>
+                           </div>
+                           <div className="flex justify-between text-sm text-slate-400">
+                              <span>Variable ({currentPlan.varPct}%)</span>
+                              <strong className={currentPlan.varPct > 0 ? "text-blue-400" : "text-slate-500"}>
+                                 {currentPlan.varPct > 0 ? formatCurrency(variableFee) : '$0'}
+                              </strong>
+                           </div>
+                           <div className="h-px bg-white/10 my-2"></div>
+                           <div className="flex justify-between items-center">
+                              <span className="text-xs font-bold text-emerald-400 uppercase">Primer Mes</span>
+                              <strong className="text-3xl font-black text-white">{formatCurrency(month1Total)}</strong>
+                           </div>
+                           <div className="flex justify-between items-center">
+                              <span className="text-xs text-slate-500 uppercase">Mes 2+ (Estimado)</span>
+                              <strong className="text-sm font-bold text-slate-400">{formatCurrency(month2Total)}</strong>
+                           </div>
+                        </div>
+
+                        <a 
+                           href={whatsappCalculatorLink} 
+                           target="_blank" 
+                           rel="noopener noreferrer" 
+                           className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5"
+                        >
+                           Aplicar por WhatsApp <ArrowRight className="w-4 h-4" />
+                        </a>
+
+                        <p className="text-[10px] text-center text-slate-500 mt-4 leading-relaxed">
+                           Si tu inversión actual es baja y necesitas bajar pauta para pagar la base, <strong className="text-slate-400">no te conviene</strong>. Preferimos decirlo de frente.
+                        </p>
+                     </div>
+                  </div>
+
+               </div>
             </div>
           </div>
         </section>
 
-        {/* SECTION 4: EDUCATIONAL SERVICES */}
+        {/* SECTION 4: STRATEGIC INTERVENTIONS (UPGRADED HIGH TICKET) */}
         <section className="mt-20 px-4 md:px-6 relative z-10">
-          <div className="text-center mb-8">
-            <h2 className="text-xl md:text-2xl font-bold text-white">Servicios Educativos</h2>
-            <div className="h-0.5 w-10 bg-blue-500 mx-auto mt-2"></div>
-          </div>
-          
-          <div className="bg-[#0A0A0A] border border-white/10 rounded-2xl p-4 md:p-10 relative mx-auto max-w-4xl">
-             <div className="grid md:grid-cols-2 gap-8 relative z-10">
-                {/* Mentorship */}
-                <div className="space-y-4">
-                    <div className="flex items-center gap-2"><GraduationCap className="text-blue-500 w-5 h-5" /><h3 className="text-xl font-bold text-white">Mentoría 1 a 1</h3></div>
-                    <div className="bg-blue-900/10 border border-blue-500/20 rounded-lg p-4 relative">
-                        <div className="absolute top-0 right-0 bg-emerald-500 text-black text-[9px] font-bold px-2 py-1 rounded-bl-lg">AHORRA $300</div>
-                        <div className="text-2xl font-bold text-white mb-1">$1,500 USD</div>
-                        <div className="text-[10px] text-emerald-400 font-bold mb-3">Plan Trimestral (Promo)</div>
-                        <ul className="space-y-1 text-xs text-slate-400">
-                            <li>• 3 Meses de Acompañamiento</li>
-                            <li>• Instalación de Sistema</li>
-                            <li>• Soporte en Slack</li>
-                        </ul>
-                    </div>
-                    {/* BOTON MENTORIA - Z-50 */}
-                    <a href={links.whatsapp_mentoria} target="_blank" rel="noopener noreferrer" className="relative z-50 pointer-events-auto w-full bg-white text-black text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-50 cursor-pointer">
-                        <MessageCircle className="w-4 h-4" /> Escribirme al WhatsApp
-                    </a>
+          <div className="max-w-4xl mx-auto">
+              <div className="text-center mb-8">
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Intervenciones Estratégicas</h2>
+                <div className="text-xs md:text-sm text-slate-400 font-mono uppercase tracking-wider">
+                  Sistema de Testeo → Validación → Graduación → Escalamiento
                 </div>
+              </div>
 
-                {/* Single Session */}
-                <div className="space-y-4">
-                    <div className="flex items-center gap-2"><Users className="text-purple-500 w-5 h-5" /><h3 className="text-xl font-bold text-white">Sesión Única</h3></div>
-                    <div className="bg-purple-900/10 border border-purple-500/20 rounded-lg p-4">
-                        <div className="text-2xl font-bold text-white mb-1">$150 USD</div>
-                        <div className="text-[10px] text-purple-400 font-bold mb-3">Por Sesión (90 min)</div>
-                         <ul className="space-y-1 text-xs text-slate-400">
-                            <li>• Auditoría en Vivo</li>
-                            <li>• Desbloqueo Estratégico</li>
-                            <li>• Grabación Incluida</li>
-                        </ul>
+              {/* FILTRO DE CALIDAD */}
+              <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
+                    <div className="text-[10px] font-bold text-slate-500 uppercase mb-1">Para Quién Es</div>
+                    <div className="text-xs text-white font-medium flex items-center justify-center gap-2">
+                       <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Marcas Validadas ($1k+/mes)
                     </div>
-                     {/* BOTON SESION - Z-50 */}
-                    <a href={links.whatsapp_consultoria} target="_blank" rel="noopener noreferrer" className="relative z-50 pointer-events-auto w-full bg-white text-black text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-purple-50 cursor-pointer">
-                        <MessageCircle className="w-4 h-4" /> Agendar por WhatsApp
-                    </a>
-                </div>
-             </div>
+                  </div>
+                  <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
+                    <div className="text-[10px] font-bold text-slate-500 uppercase mb-1">Para Quién NO Es</div>
+                    <div className="text-xs text-white font-medium flex items-center justify-center gap-2">
+                       <X className="w-3 h-3 text-red-500" /> Dropshipping Genérico
+                    </div>
+                  </div>
+                  <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
+                    <div className="text-[10px] font-bold text-slate-500 uppercase mb-1">Requisito Mínimo</div>
+                    <div className="text-xs text-white font-medium flex items-center justify-center gap-2">
+                       <ShoppingBag className="w-3 h-3 text-blue-500" /> Tienda Activa + Pixel
+                    </div>
+                  </div>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-6 relative z-10">
+                  {/* Single Session - ENTRY POINT */}
+                  <div className="bg-[#0A0A0A] border border-purple-500/20 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative group hover:border-purple-500/40 transition-colors">
+                      <div>
+                        <div className="flex items-center gap-2 mb-4">
+                            <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                                <Microscope className="w-4 h-4" />
+                            </div>
+                            <h3 className="text-lg font-bold text-white">Sesión de Instalación</h3>
+                        </div>
+                        <div className="text-3xl font-black text-white mb-2">$150 USD <span className="text-xs font-normal text-slate-500 ml-1">/ Único pago</span></div>
+                        <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                            Intervención táctica de 60-75 minutos. Diagnosticamos fugas de capital y te entregamos el roadmap exacto para destrabar tu facturación actual.
+                        </p>
+                        
+                        <div className="space-y-3 mb-8">
+                            <div className="flex gap-2 items-start">
+                                <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs text-slate-300"><strong className="text-white">Auditoría en Vivo:</strong> Revisión de campañas y estructura.</div>
+                            </div>
+                            <div className="flex gap-2 items-start">
+                                <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs text-slate-300"><strong className="text-white">Sistema de Testeo:</strong> Cómo encontrar ganadores rápido.</div>
+                            </div>
+                             <div className="flex gap-2 items-start">
+                                <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs text-slate-300"><strong className="text-white">Roadmap Claro:</strong> Qué hacer los próximos 30 días.</div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <a href={links.whatsapp_consultoria} target="_blank" rel="noopener noreferrer" className="w-full bg-white/5 border border-white/10 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-purple-600 hover:border-purple-600 transition-all cursor-pointer group-hover:bg-purple-600/10">
+                          Agendar por WhatsApp <ArrowRight className="w-4 h-4" />
+                      </a>
+                      
+                      <div className="mt-3 text-center text-[9px] text-slate-500 uppercase tracking-wider">Ideal para desbloquear crecimiento</div>
+                  </div>
+
+                  {/* Mentorship - HIGH TICKET */}
+                  <div className="bg-[#0A0A0A] border border-blue-500/30 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative shadow-2xl shadow-blue-900/10">
+                      <div className="absolute top-0 right-0 bg-blue-600 text-white text-[9px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
+                        CUPOS LIMITADOS
+                      </div>
+                      
+                      <div>
+                         <div className="flex items-center gap-2 mb-4">
+                            <div className="w-8 h-8 rounded-lg bg-blue-500/10 flex items-center justify-center text-blue-400">
+                                <Zap className="w-4 h-4" />
+                            </div>
+                            <h3 className="text-lg font-bold text-white">Mentoría 1:1 - Sistema</h3>
+                        </div>
+                        <div className="text-3xl font-black text-white mb-2">$1,500 USD <span className="text-xs font-normal text-slate-500 ml-1">/ Trimestral</span></div>
+                         <p className="text-xs text-slate-400 mb-6 leading-relaxed">
+                            No es un curso. Es la instalación completa de nuestra infraestructura de anuncios en tu negocio. Ejecución guiada para escalar sin romper el margen.
+                        </p>
+
+                         <div className="space-y-3 mb-8">
+                            <div className="flex gap-2 items-start">
+                                <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs text-slate-300"><strong className="text-white">Instalación Total:</strong> Creative testing + Media Buying.</div>
+                            </div>
+                            <div className="flex gap-2 items-start">
+                                <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs text-slate-300"><strong className="text-white">Acompañamiento 90 Días:</strong> Ajustes semanales y soporte.</div>
+                            </div>
+                             <div className="flex gap-2 items-start">
+                                <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
+                                <div className="text-xs text-slate-300"><strong className="text-white">Soporte Slack:</strong> Comunicación directa con ingeniería.</div>
+                            </div>
+                        </div>
+                      </div>
+
+                      <a href={links.whatsapp_mentoria} target="_blank" rel="noopener noreferrer" className="w-full bg-blue-600 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-500 shadow-lg shadow-blue-900/50 cursor-pointer">
+                          Aplicar al Programa <ArrowRight className="w-4 h-4" />
+                      </a>
+                      
+                       <div className="mt-3 text-center text-[9px] text-blue-400/60 uppercase tracking-wider">Solo para dueños comprometidos</div>
+                  </div>
+              </div>
+              
+               <div className="mt-6 text-center">
+                  <p className="text-[10px] text-slate-600 italic">
+                    "¿Y si mi cuenta está desordenada?" — Precisamente por eso necesitas un sistema. <br/>
+                    Ordenamos las señales primero, escalamos después. Basado en data real de Shopify + Meta Ads.
+                  </p>
+               </div>
           </div>
         </section>
 
