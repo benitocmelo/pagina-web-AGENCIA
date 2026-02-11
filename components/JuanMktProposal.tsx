@@ -72,13 +72,13 @@ Plan de interés: ${currentPlan.name}
 Objetivo en 90 días: [meta]`;
   const whatsappCalculatorLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  // --- CREDENTIALS (5 ITEMS COMPLETE) ---
+  // --- CREDENTIALS (UPDATED WITH PROVIDED IMAGES) ---
   const credentials = [
     { type: 'badge', title: 'Trayectoria', desc: '+5 Años Exp.', url: '' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo", title: 'Insignia Meta', desc: 'Facebook & IG Ads' },
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs", title: 'Certificado Pro', desc: 'Media Buying' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo", title: 'Insignia Meta', desc: 'Facebook & IG Ads' }
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' }
   ];
 
   return (
@@ -233,9 +233,10 @@ Objetivo en 90 días: [meta]`;
                     <Award className="text-yellow-500 w-5 h-5" /> Respaldo Técnico & Trayectoria
                 </h3>
             </div>
+            {/* FIX: Changed item width from fixed w-[180px] to flexible md:w-full to prevent grid overflow on desktop */}
             <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-5 md:gap-6 md:overflow-visible max-w-5xl mx-auto relative z-20">
                 {credentials.map((item, index) => (
-                    <div key={index} className="flex-shrink-0 snap-center w-[180px] h-[220px] bg-[#0F0F0F] border border-white/10 rounded-xl p-4 flex flex-col items-center justify-between group">
+                    <div key={index} className="flex-shrink-0 snap-center w-[180px] md:w-full h-[220px] bg-[#0F0F0F] border border-white/10 rounded-xl p-4 flex flex-col items-center justify-between group">
                         <div className="h-28 w-full flex items-center justify-center">
                             {item.type === 'badge' ? (
                                 <div className="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center border border-yellow-500/50">
@@ -267,40 +268,110 @@ Objetivo en 90 días: [meta]`;
                     <h2 className="text-3xl md:text-5xl font-bold text-white mb-4">No mostramos Anuncios. <br/><span className="text-blue-500">Mostramos Dinero.</span></h2>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
+                <div className="grid md:grid-cols-3 gap-8 mb-8">
                     {/* RESULT 1 */}
-                    <div className="bg-[#0F0F0F] rounded-2xl border border-white/10 overflow-hidden">
-                        <div className="h-48 md:h-56 bg-slate-900 relative">
-                            <img src="https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/r2.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vcjIuanBlZyIsImlhdCI6MTc2ODQxNjgyMiwiZXhwIjoxNzk5OTUyODIyfQ.3clD7ksYtgIDzLHfIoemNsy6coAFJJrWSB9hPLbQuc0" className="w-full h-full object-cover" alt="Result"/>
-                            <div className="absolute top-4 right-4 bg-emerald-500 text-black px-3 py-1 rounded-full text-xs font-bold font-mono">+196% CRECIMIENTO</div>
+                    <div className="bg-[#0F0F0F] rounded-2xl border border-white/10 overflow-hidden group hover:border-white/20 transition-colors">
+                        {/* FIX: Moved badges to a dedicated header row so image is not covered. Used object-contain to show full image. */}
+                        
+                        {/* Technical Badges Header (Moved Out) */}
+                        <div className="bg-white/5 border-b border-white/10 px-4 py-2 flex justify-between items-center">
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                                🇨🇴 COLOMBIA · META ADS
+                            </div>
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                                90 DÍAS
+                            </div>
                         </div>
-                        <div className="p-5">
+
+                        <div className="h-56 bg-black relative p-2 flex items-center justify-center">
+                            <img src="https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/r2.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vcjIuanBlZyIsImlhdCI6MTc2ODQxNjgyMiwiZXhwIjoxNzk5OTUyODIyfQ.3clD7ksYtgIDzLHfIoemNsy6coAFJJrWSB9hPLbQuc0" className="max-w-full max-h-full object-contain" alt="Result"/>
+
+                            {/* Result Tag (Moved to Bottom Right of Image) */}
+                            <div className="absolute bottom-3 right-3 bg-emerald-500 text-black px-3 py-1 rounded-full text-xs font-bold font-mono shadow-lg shadow-emerald-900/20 z-10 border border-emerald-400">
+                                +196% CRECIMIENTO
+                            </div>
+                        </div>
+                        <div className="p-5 border-t border-white/10">
                             <h3 className="text-lg font-bold text-white mb-2">El Club del Billón</h3>
-                            <p className="text-sm text-slate-400">Rompimos la barrera de los $1,000 Millones en facturación.</p>
+                            <p className="text-sm text-slate-400 mb-4">Rompimos la barrera de los $1,000 Millones en facturación.</p>
+                            <div className="pt-3 border-t border-white/5">
+                                <p className="text-[11px] text-slate-500 font-mono leading-snug">
+                                    <span className="text-slate-400 font-bold opacity-75">Palanca aplicada:</span> <br/>
+                                    Sistema de testeo creativo + escalamiento progresivo
+                                </p>
+                            </div>
                         </div>
                     </div>
+
                     {/* RESULT 2 */}
-                    <div className="bg-[#0F0F0F] rounded-2xl border border-white/10 overflow-hidden">
-                        <div className="h-48 md:h-56 bg-slate-900 relative">
-                             <img src="https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/r3.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vcjMuanBlZyIsImlhdCI6MTc2ODQxNjc2NywiZXhwIjoxNzk5OTUyNzY3fQ.3tDLwvh9mGNDMIOpO-wCVkSOKjvRhZlQ64X0zxBzk84" className="w-full h-full object-cover" alt="Result"/>
-                            <div className="absolute top-4 right-4 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold font-mono">+150% PEDIDOS</div>
+                    <div className="bg-[#0F0F0F] rounded-2xl border border-white/10 overflow-hidden group hover:border-white/20 transition-colors">
+                        
+                         {/* Technical Badges Header (Moved Out) */}
+                         <div className="bg-white/5 border-b border-white/10 px-4 py-2 flex justify-between items-center">
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                                🇨🇴 COLOMBIA · META ADS
+                            </div>
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                                90 DÍAS
+                            </div>
                         </div>
-                        <div className="p-5">
+
+                        <div className="h-56 bg-black relative p-2 flex items-center justify-center">
+                             <img src="https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/r3.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vcjMuanBlZyIsImlhdCI6MTc2ODQxNjc2NywiZXhwIjoxNzk5OTUyNzY3fQ.3tDLwvh9mGNDMIOpO-wCVkSOKjvRhZlQ64X0zxBzk84" className="max-w-full max-h-full object-contain" alt="Result"/>
+                            
+                            {/* Result Tag (Moved to Bottom Right) */}
+                            <div className="absolute bottom-3 right-3 bg-blue-600 text-white px-3 py-1 rounded-full text-xs font-bold font-mono shadow-lg shadow-blue-900/20 z-10 border border-blue-400/50">
+                                +150% PEDIDOS
+                            </div>
+                        </div>
+                        <div className="p-5 border-t border-white/10">
                             <h3 className="text-lg font-bold text-white mb-2">Máquina de Logística</h3>
-                            <p className="text-sm text-slate-400">Escalamos la adquisición generando más de 3,290 órdenes.</p>
+                            <p className="text-sm text-slate-400 mb-4">Escalamos la adquisición generando más de 3,290 órdenes.</p>
+                            <div className="pt-3 border-t border-white/5">
+                                <p className="text-[11px] text-slate-500 font-mono leading-snug">
+                                    <span className="text-slate-400 font-bold opacity-75">Palanca aplicada:</span> <br/>
+                                    Creativos ganadores + optimización de estructura
+                                </p>
+                            </div>
                         </div>
                     </div>
+
                     {/* RESULT 3 */}
-                    <div className="bg-[#0F0F0F] rounded-2xl border border-white/10 overflow-hidden">
-                        <div className="h-48 md:h-56 bg-slate-900 relative">
-                             <img src="https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/r1.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vcjEuanBlZyIsImlhdCI6MTc2ODQxNjgwMCwiZXhwIjoxNzk5OTUyODAwfQ.mAz5GJj-FJeXs2nO3DJ8Xourh79gIYRB1BUfPR9cVJM" className="w-full h-full object-cover" alt="Result"/>
-                            <div className="absolute top-4 right-4 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold font-mono">+94% VENTAS</div>
+                    <div className="bg-[#0F0F0F] rounded-2xl border border-white/10 overflow-hidden group hover:border-white/20 transition-colors">
+                        
+                         {/* Technical Badges Header (Moved Out) */}
+                         <div className="bg-white/5 border-b border-white/10 px-4 py-2 flex justify-between items-center">
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider flex items-center gap-1">
+                                🇨🇴 COLOMBIA · META ADS
+                            </div>
+                            <div className="text-[9px] font-bold text-slate-400 uppercase tracking-wider">
+                                21 DÍAS
+                            </div>
                         </div>
-                        <div className="p-5">
+
+                        <div className="h-56 bg-black relative p-2 flex items-center justify-center">
+                             <img src="https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/r1.jpeg?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vcjEuanBlZyIsImlhdCI6MTc2ODQxNjgwMCwiZXhwIjoxNzk5OTUyODAwfQ.mAz5GJj-FJeXs2nO3DJ8Xourh79gIYRB1BUfPR9cVJM" className="max-w-full max-h-full object-contain" alt="Result"/>
+                            
+                            {/* Result Tag (Moved to Bottom Right) */}
+                            <div className="absolute bottom-3 right-3 bg-purple-600 text-white px-3 py-1 rounded-full text-xs font-bold font-mono shadow-lg shadow-purple-900/20 z-10 border border-purple-400/50">
+                                +94% VENTAS
+                            </div>
+                        </div>
+                        <div className="p-5 border-t border-white/10">
                             <h3 className="text-lg font-bold text-white mb-2">Duplicación de Facturación</h3>
-                            <p className="text-sm text-slate-400">Un sólido 94% de crecimiento en ventas totales (68M COP).</p>
+                            <p className="text-sm text-slate-400 mb-4">Un sólido 94% de crecimiento en ventas totales (68M COP).</p>
+                             <div className="pt-3 border-t border-white/5">
+                                <p className="text-[11px] text-slate-500 font-mono leading-snug">
+                                    <span className="text-slate-400 font-bold opacity-75">Palanca aplicada:</span> <br/>
+                                    Aceleración de ganadores + control de costos
+                                </p>
+                            </div>
                         </div>
                     </div>
+                </div>
+
+                <div className="text-center">
+                    <p className="text-xs text-slate-500/75 opacity-75">Resultados reales en Colombia con Meta Ads. Cada caso muestra ventana de medición + palanca aplicada.</p>
                 </div>
             </div>
         </section>
@@ -412,11 +483,15 @@ Objetivo en 90 días: [meta]`;
                               </div>
                            </button>
                         ))}
-                        <p className="text-xs text-slate-500 mt-4 px-2 leading-relaxed">
-                           <Info className="w-3 h-3 inline mr-1" />
-                           {plans[activePlanKey].desc} 
-                           {activePlanKey === 'starter' && <span className="block mt-1 text-slate-400">No es un plan "barato": es para quien puede sostener la base sin sacrificar inversión.</span>}
-                        </p>
+                        <div className="text-xs text-slate-500 mt-4 px-2 leading-relaxed">
+                           <p className="mb-2"><Info className="w-3 h-3 inline mr-1" /> {plans[activePlanKey].desc}</p>
+                           {activePlanKey === 'starter' && (
+                               <div className="mt-3 bg-white/5 p-3 rounded-lg border border-white/5 text-[11px] space-y-1">
+                                   <div className="flex gap-2"><span className="text-white font-bold">Mes 1:</span> <span className="text-slate-400">Orden + tracking + estructura + sistema de testeo</span></div>
+                                   <div className="flex gap-2"><span className="text-white font-bold">Mes 2:</span> <span className="text-slate-400">Optimización + ganadores + escalamiento</span></div>
+                               </div>
+                           )}
+                        </div>
                      </div>
                   </div>
 
@@ -476,8 +551,12 @@ Objetivo en 90 días: [meta]`;
           <div className="max-w-4xl mx-auto">
               <div className="text-center mb-8">
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Intervenciones Estratégicas</h2>
-                <div className="text-xs md:text-sm text-slate-400 font-mono uppercase tracking-wider">
+                <div className="text-xs md:text-sm text-slate-400 font-mono uppercase tracking-wider mb-6">
                   Sistema de Testeo → Validación → Graduación → Escalamiento
+                </div>
+                <div className="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-lg">
+                   <p className="text-sm font-bold text-white">"Aquí tú ejecutas. Nosotros te guiamos."</p>
+                   <p className="text-[10px] text-slate-400 mt-1">(Si buscas que lo hagamos por ti, ve al <a href="#modelo-escalamiento" className="text-blue-400 hover:underline">Modelo de Escalamiento Base + Variable</a>.)</p>
                 </div>
               </div>
 
@@ -511,11 +590,11 @@ Objetivo en 90 días: [meta]`;
                             <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
                                 <Microscope className="w-4 h-4" />
                             </div>
-                            <h3 className="text-lg font-bold text-white">Sesión de Instalación</h3>
+                            <h3 className="text-lg font-bold text-white">Diagnóstico de Escalamiento <span className="text-sm font-normal text-slate-500 ml-1">(75 min)</span></h3>
                         </div>
                         <div className="text-3xl font-black text-white mb-2">$150 USD <span className="text-xs font-normal text-slate-500 ml-1">/ Único pago</span></div>
                         <p className="text-xs text-slate-400 mb-6 leading-relaxed">
-                            Intervención táctica de 60-75 minutos. Diagnosticamos fugas de capital y te entregamos el roadmap exacto para destrabar tu facturación actual.
+                            Sesión única. Sin gestión. Sales con un plan de 30 días. Diagnosticamos fugas de capital y te entregamos el roadmap exacto para destrabar tu facturación actual.
                         </p>
                         
                         <div className="space-y-3 mb-8">
@@ -556,21 +635,21 @@ Objetivo en 90 días: [meta]`;
                         </div>
                         <div className="text-3xl font-black text-white mb-2">$1,500 USD <span className="text-xs font-normal text-slate-500 ml-1">/ Trimestral</span></div>
                          <p className="text-xs text-slate-400 mb-6 leading-relaxed">
-                            No es un curso. Es la instalación completa de nuestra infraestructura de anuncios en tu negocio. Ejecución guiada para escalar sin romper el margen.
+                            90 días de acompañamiento (no una sesión). Estructura + testing + decisiones semanales para escalar sin romper margen.
                         </p>
 
                          <div className="space-y-3 mb-8">
                             <div className="flex gap-2 items-start">
                                 <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                                <div className="text-xs text-slate-300"><strong className="text-white">Instalación Total:</strong> Creative testing + Media Buying.</div>
+                                <div className="text-xs text-slate-300"><strong className="text-white">12 Semanas:</strong> 1 sesión semanal de optimización.</div>
                             </div>
                             <div className="flex gap-2 items-start">
                                 <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                                <div className="text-xs text-slate-300"><strong className="text-white">Acompañamiento 90 Días:</strong> Ajustes semanales y soporte.</div>
+                                <div className="text-xs text-slate-300"><strong className="text-white">Estrategia:</strong> Revisión de métricas + plan de tests semanal.</div>
                             </div>
                              <div className="flex gap-2 items-start">
                                 <CheckCircle2 className="w-4 h-4 text-blue-500 mt-0.5 flex-shrink-0" />
-                                <div className="text-xs text-slate-300"><strong className="text-white">Soporte Slack:</strong> Comunicación directa con ingeniería.</div>
+                                <div className="text-xs text-slate-300"><strong className="text-white">Soporte Slack/WhatsApp:</strong> Feedback continuo sobre creativos.</div>
                             </div>
                         </div>
                       </div>
