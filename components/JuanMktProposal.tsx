@@ -78,7 +78,7 @@ Objetivo en 90 días: [meta]`;
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo", title: 'Insignia Meta', desc: 'Facebook & IG Ads' },
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8v2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs", title: 'Certificado Pro', desc: 'Media Buying' },
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' }
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8v2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' }
   ];
 
   return (
@@ -573,47 +573,59 @@ Objetivo en 90 días: [meta]`;
         </section>
 
         {/* SECTION 4: STRATEGIC INTERVENTIONS (UPGRADED HIGH TICKET) */}
-        <section className="mt-20 px-4 md:px-6 relative z-10">
-          <div className="max-w-4xl mx-auto">
-              <div className="text-center mb-8">
-                <h2 className="text-2xl md:text-3xl font-bold text-white mb-2">Intervenciones Estratégicas</h2>
+        <section className="mt-20 py-24 relative z-10 overflow-hidden">
+          {/* Fondo Diferenciado - Midnight Blue Premium */}
+          <div className="absolute inset-0 bg-[#09090b]"></div>
+          
+          {/* Iluminación Ambiental (Aurora Effect) */}
+          <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[1000px] h-[600px] bg-indigo-900/20 rounded-full blur-[120px] pointer-events-none animate-pulse"></div>
+          
+          {/* Contenedor Principal */}
+          <div className="max-w-4xl mx-auto px-4 md:px-6 relative z-10">
+              <div className="text-center mb-10">
+                <div className="inline-block mb-3">
+                     <span className="px-3 py-1 bg-indigo-500/10 border border-indigo-500/20 rounded-full text-[10px] font-bold text-indigo-300 uppercase tracking-widest">
+                         Servicios High-Ticket
+                     </span>
+                </div>
+                <h2 className="text-2xl md:text-4xl font-bold text-white mb-2">Intervenciones Estratégicas</h2>
                 <div className="text-xs md:text-sm text-slate-400 font-mono uppercase tracking-wider mb-6">
                   Sistema de Testeo → Validación → Graduación → Escalamiento
                 </div>
-                <div className="inline-block px-4 py-2 bg-white/5 border border-white/10 rounded-lg">
+                <div className="inline-block px-5 py-3 bg-[#0F0F13]/80 backdrop-blur-md border border-white/10 rounded-lg shadow-lg">
                    <p className="text-sm font-bold text-white">"Aquí tú ejecutas. Nosotros te guiamos."</p>
-                   <p className="text-[10px] text-slate-400 mt-1">(Si buscas que lo hagamos por ti, ve al <a href="#modelo-escalamiento" className="text-blue-400 hover:underline">Modelo de Escalamiento Base + Variable</a>.)</p>
+                   <p className="text-[10px] text-slate-400 mt-1">(Si buscas que lo hagamos por ti, ve al <a href="#modelo-escalamiento" className="text-indigo-400 hover:underline">Modelo de Escalamiento Base + Variable</a>.)</p>
                 </div>
               </div>
 
-              {/* FILTRO DE CALIDAD */}
-              <div className="mb-8 grid grid-cols-1 md:grid-cols-3 gap-3">
-                  <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
+              {/* FILTRO DE CALIDAD - Glassmorphism */}
+              <div className="mb-12 grid grid-cols-1 md:grid-cols-3 gap-3">
+                  <div className="bg-[#13131A]/60 backdrop-blur-sm border border-white/5 rounded-lg p-3 text-center">
                     <div className="text-[10px] font-bold text-slate-500 uppercase mb-1">Para Quién Es</div>
                     <div className="text-xs text-white font-medium flex items-center justify-center gap-2">
                        <CheckCircle2 className="w-3 h-3 text-emerald-500" /> Marcas Validadas ($1k+/mes)
                     </div>
                   </div>
-                  <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
+                  <div className="bg-[#13131A]/60 backdrop-blur-sm border border-white/5 rounded-lg p-3 text-center">
                     <div className="text-[10px] font-bold text-slate-500 uppercase mb-1">Para Quién NO Es</div>
                     <div className="text-xs text-white font-medium flex items-center justify-center gap-2">
                        <X className="w-3 h-3 text-red-500" /> Dropshipping Genérico
                     </div>
                   </div>
-                  <div className="bg-white/5 border border-white/5 rounded-lg p-3 text-center">
+                  <div className="bg-[#13131A]/60 backdrop-blur-sm border border-white/5 rounded-lg p-3 text-center">
                     <div className="text-[10px] font-bold text-slate-500 uppercase mb-1">Requisito Mínimo</div>
                     <div className="text-xs text-white font-medium flex items-center justify-center gap-2">
-                       <ShoppingBag className="w-3 h-3 text-blue-500" /> Tienda Activa + Pixel
+                       <ShoppingBag className="w-3 h-3 text-indigo-500" /> Tienda Activa + Pixel
                     </div>
                   </div>
               </div>
               
               <div className="grid md:grid-cols-2 gap-6 relative z-10">
                   {/* Single Session - ENTRY POINT */}
-                  <div className="bg-[#0A0A0A] border border-purple-500/20 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative group hover:border-purple-500/40 transition-colors">
+                  <div className="bg-[#121218]/90 backdrop-blur border border-indigo-500/20 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative group hover:border-indigo-500/40 transition-colors shadow-lg hover:shadow-indigo-900/10">
                       <div>
                         <div className="flex items-center gap-2 mb-4">
-                            <div className="w-8 h-8 rounded-lg bg-purple-500/10 flex items-center justify-center text-purple-400">
+                            <div className="w-8 h-8 rounded-lg bg-indigo-500/10 flex items-center justify-center text-indigo-400">
                                 <Microscope className="w-4 h-4" />
                             </div>
                             <h3 className="text-lg font-bold text-white">Diagnóstico de Escalamiento <span className="text-sm font-normal text-slate-500 ml-1">(75 min)</span></h3>
@@ -625,21 +637,21 @@ Objetivo en 90 días: [meta]`;
                         
                         <div className="space-y-3 mb-8">
                             <div className="flex gap-2 items-start">
-                                <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                <Check className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
                                 <div className="text-xs text-slate-300"><strong className="text-white">Auditoría en Vivo:</strong> Revisión de campañas y estructura.</div>
                             </div>
                             <div className="flex gap-2 items-start">
-                                <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                <Check className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
                                 <div className="text-xs text-slate-300"><strong className="text-white">Sistema de Testeo:</strong> Cómo encontrar ganadores rápido.</div>
                             </div>
                              <div className="flex gap-2 items-start">
-                                <Check className="w-4 h-4 text-purple-500 mt-0.5 flex-shrink-0" />
+                                <Check className="w-4 h-4 text-indigo-500 mt-0.5 flex-shrink-0" />
                                 <div className="text-xs text-slate-300"><strong className="text-white">Roadmap Claro:</strong> Qué hacer los próximos 30 días.</div>
                             </div>
                         </div>
                       </div>
 
-                      <a href={links.whatsapp_consultoria} target="_blank" rel="noopener noreferrer" className="w-full bg-white/5 border border-white/10 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-purple-600 hover:border-purple-600 transition-all cursor-pointer group-hover:bg-purple-600/10">
+                      <a href={links.whatsapp_consultoria} target="_blank" rel="noopener noreferrer" className="w-full bg-white/5 border border-white/10 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-indigo-600 hover:border-indigo-600 transition-all cursor-pointer group-hover:bg-indigo-600/10">
                           Agendar por WhatsApp <ArrowRight className="w-4 h-4" />
                       </a>
                       
@@ -647,7 +659,7 @@ Objetivo en 90 días: [meta]`;
                   </div>
 
                   {/* Mentorship - HIGH TICKET */}
-                  <div className="bg-[#0A0A0A] border border-blue-500/30 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative shadow-2xl shadow-blue-900/10">
+                  <div className="bg-[#121218]/90 backdrop-blur border border-blue-500/30 rounded-2xl p-6 md:p-8 flex flex-col justify-between relative shadow-2xl shadow-blue-900/10">
                       <div className="absolute top-0 right-0 bg-blue-600 text-white text-[9px] font-bold px-3 py-1 rounded-bl-lg rounded-tr-lg">
                         CUPOS LIMITADOS
                       </div>
