@@ -23,26 +23,26 @@ const JuanMktProposal: React.FC = () => {
   const plans = {
     starter: { 
       name: 'Starter', 
-      range: '$0–$3k', 
+      range: '$0–$3k / mes en ads', 
       base: 500, 
       varPct: 0, 
-      desc: 'Para marcas que ya venden y buscan orden.',
+      tag: 'Orden + Preparación para escalar',
       defaultInv: 1000
     },
     growth: { 
       name: 'Growth', 
-      range: '$3k–$15k', 
+      range: '$3k–$15k / mes en ads', 
       base: 600, 
       varPct: 10, 
-      desc: 'Escalamiento agresivo.',
+      tag: 'Crecimiento + Testing constante',
       defaultInv: 5000
     },
     scale: { 
       name: 'Scale', 
-      range: '$15k+', 
+      range: '$15k+ / mes en ads', 
       base: 1000, 
       varPct: 8, 
-      desc: 'Dominio de mercado.',
+      tag: 'Escalamiento controlado',
       defaultInv: 20000
     }
   };
@@ -76,7 +76,7 @@ Objetivo en 90 días: [meta]`;
   const credentials = [
     { type: 'badge', title: 'Trayectoria', desc: '+5 Años Exp.', url: '' },
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo", title: 'Insignia Meta', desc: 'Facebook & IG Ads' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs", title: 'Certificado Pro', desc: 'Media Buying' },
+    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8v2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs", title: 'Certificado Pro', desc: 'Media Buying' },
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
     { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' }
   ];
@@ -436,8 +436,8 @@ Objetivo en 90 días: [meta]`;
                      <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
                         <div className="flex justify-between items-end mb-6">
                            <div>
-                              <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">1. Tu inversión mensual en Ads</p>
-                              <p className="text-xs text-slate-500">¿Cuánto inviertes hoy en Meta/Google?</p>
+                              <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">1. Selecciona tu Plan según tu inversión en Ads</p>
+                              <p className="text-xs text-slate-500">Mueve el slider: te ubicamos automáticamente en el plan correcto.</p>
                            </div>
                            <div className="text-3xl font-bold text-white tracking-tight">{formatCurrency(investment)}</div>
                         </div>
@@ -450,8 +450,13 @@ Objetivo en 90 días: [meta]`;
                           onChange={(e) => setInvestment(Number(e.target.value))}
                           className="w-full h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400 transition-all"
                         />
-                        <div className="flex justify-between mt-3 text-xs text-slate-500 font-mono">
+                        <div className="flex justify-between mt-3 text-xs text-slate-500 font-mono mb-6">
                            <span>$0</span><span>$5k</span><span>$10k</span><span>$15k</span><span>$20k+</span>
+                        </div>
+                         
+                         {/* DISCLAIMER NO PRECIO */}
+                        <div className="text-[10px] text-slate-400/80 bg-black/20 p-2 rounded text-center border border-white/5">
+                            Esto <strong>NO es el precio</strong>. Es el plan que te corresponde según tu inversión.
                         </div>
                      </div>
 
@@ -461,83 +466,104 @@ Objetivo en 90 días: [meta]`;
                            <button
                               key={key}
                               onClick={() => setInvestment(plan.defaultInv)}
-                              className={`w-full flex items-center justify-between p-4 rounded-xl border transition-all text-left group ${
+                              className={`w-full flex flex-col p-4 rounded-xl border transition-all text-left group relative overflow-hidden ${
                                  activePlanKey === key 
                                  ? 'bg-blue-600/10 border-blue-500/50 shadow-[0_0_20px_rgba(37,99,235,0.1)]' 
                                  : 'bg-white/5 border-white/5 hover:bg-white/10 hover:border-white/10'
                               }`}
                            >
-                              <div className="flex flex-col">
-                                 <span className={`font-bold text-sm ${activePlanKey === key ? 'text-white' : 'text-slate-300'}`}>{plan.name}</span>
-                                 <span className="text-xs text-slate-500">{plan.range}</span>
-                              </div>
-                              <div className="flex items-center gap-6">
-                                 <div className="text-right">
-                                    <span className={`block font-mono text-sm ${activePlanKey === key ? 'text-white' : 'text-slate-400'}`}>${plan.base}</span>
-                                    <span className="text-[10px] text-slate-500 uppercase">Base</span>
+                              {activePlanKey === key && (
+                                  <div className="absolute top-0 right-0 bg-blue-600 text-[9px] font-bold text-white px-2 py-1 rounded-bl-lg">
+                                      PLAN RECOMENDADO
+                                  </div>
+                              )}
+                              
+                              <div className="flex flex-col w-full">
+                                 <span className={`font-bold text-sm mb-1 ${activePlanKey === key ? 'text-white' : 'text-slate-300'}`}>{plan.name}</span>
+                                 <span className="text-xs text-slate-500 mb-2">{plan.range}</span>
+                                 
+                                 {/* TAG DESCRIPTIVO */}
+                                 <div className={`inline-flex items-center gap-1.5 text-xs font-medium ${activePlanKey === key ? 'text-blue-300' : 'text-slate-400'}`}>
+                                     <Tag className="w-3 h-3" /> {plan.tag}
                                  </div>
-                                 <div className="text-right w-16">
-                                    <span className={`block font-mono text-sm ${activePlanKey === key ? 'text-blue-400' : 'text-slate-400'}`}>{plan.varPct}%</span>
-                                    <span className="text-[10px] text-slate-500 uppercase">Variable</span>
-                                 </div>
+
+                                 {/* MINI CTA SOLO SI ACTIVO */}
+                                 {activePlanKey === key && (
+                                     <div className="mt-3 pt-3 border-t border-blue-500/20 text-[10px] font-bold text-blue-400 flex items-center gap-1 animate-pulse">
+                                         Ver detalles del plan <ArrowRight className="w-3 h-3" />
+                                     </div>
+                                 )}
                               </div>
                            </button>
                         ))}
-                        <div className="text-xs text-slate-500 mt-4 px-2 leading-relaxed">
-                           <p className="mb-2"><Info className="w-3 h-3 inline mr-1" /> {plans[activePlanKey].desc}</p>
-                           {activePlanKey === 'starter' && (
-                               <div className="mt-3 bg-white/5 p-3 rounded-lg border border-white/5 text-[11px] space-y-1">
-                                   <div className="flex gap-2"><span className="text-white font-bold">Mes 1:</span> <span className="text-slate-400">Orden + tracking + estructura + sistema de testeo</span></div>
-                                   <div className="flex gap-2"><span className="text-white font-bold">Mes 2:</span> <span className="text-slate-400">Optimización + ganadores + escalamiento</span></div>
-                               </div>
-                           )}
+                        
+                        <div className="text-center mt-6">
+                            <p className="text-xs text-slate-500">En el siguiente paso verás el detalle del pago y cómo trabajamos en tu plan.</p>
                         </div>
                      </div>
                   </div>
 
                   {/* Right Column: Summary */}
                   <div className="lg:col-span-5 flex flex-col justify-between">
-                     <div className="bg-gradient-to-br from-slate-900 to-black border border-blue-500/20 rounded-2xl p-6 h-full relative overflow-hidden">
+                     <div className="bg-gradient-to-br from-slate-900 to-black border border-blue-500/20 rounded-2xl p-6 h-full relative overflow-hidden flex flex-col">
                         {/* Promo Badge */}
                         <div className="bg-blue-900/20 border border-blue-500/30 rounded-lg p-3 mb-6">
                            <div className="text-[10px] font-bold text-blue-400 uppercase tracking-wider mb-1">MES 1: INSTALACIÓN</div>
                            <p className="text-xs text-slate-400 leading-relaxed">Primer mes sin variable. Ordenamos estructura, señales y sistema de testeo antes de escalar.</p>
                         </div>
 
-                        <div className="space-y-4 mb-8">
-                           <div className="flex justify-between text-sm text-slate-400">
-                              <span>Fee Base</span>
-                              <strong className="text-white">{formatCurrency(currentPlan.base)}</strong>
-                           </div>
-                           <div className="flex justify-between text-sm text-slate-400">
-                              <span>Variable ({currentPlan.varPct}%)</span>
-                              <strong className={currentPlan.varPct > 0 ? "text-blue-400" : "text-slate-500"}>
-                                 {currentPlan.varPct > 0 ? formatCurrency(variableFee) : '$0'}
-                              </strong>
-                           </div>
-                           <div className="h-px bg-white/10 my-2"></div>
-                           <div className="flex justify-between items-center">
-                              <span className="text-xs font-bold text-emerald-400 uppercase">Primer Mes</span>
-                              <strong className="text-3xl font-black text-white">{formatCurrency(month1Total)}</strong>
-                           </div>
-                           <div className="flex justify-between items-center">
-                              <span className="text-xs text-slate-500 uppercase">Mes 2+ (Estimado)</span>
-                              <strong className="text-sm font-bold text-slate-400">{formatCurrency(month2Total)}</strong>
-                           </div>
+                        {/* MES 1 Breakdown */}
+                        <div className="mb-6 pb-6 border-b border-white/10">
+                            <div className="text-[10px] font-bold text-white uppercase tracking-wider mb-3">MES 1 (SIN VARIABLE)</div>
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-sm text-slate-400">
+                                    <span>Fijo mensual</span>
+                                    <span className="text-white font-mono">{formatCurrency(currentPlan.base)}</span>
+                                </div>
+                                <div className="flex justify-between text-sm text-slate-400">
+                                    <span>% sobre Ads</span>
+                                    <span className="text-white font-mono">$0</span>
+                                </div>
+                                <div className="flex justify-between items-center mt-3 pt-3 border-t border-white/5">
+                                    <span className="text-xs font-bold text-emerald-400 uppercase">TOTAL MES 1</span>
+                                    <strong className="text-xl font-black text-white">{formatCurrency(month1Total)}</strong>
+                                </div>
+                            </div>
                         </div>
 
-                        <a 
-                           href={whatsappCalculatorLink} 
-                           target="_blank" 
-                           rel="noopener noreferrer" 
-                           className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5"
-                        >
-                           Aplicar por WhatsApp <ArrowRight className="w-4 h-4" />
-                        </a>
+                        {/* MES 2+ Breakdown */}
+                        <div className="mb-8">
+                            <div className="text-[10px] font-bold text-blue-400 uppercase tracking-wider mb-3">MES 2+ (GESTIÓN + ESCALAMIENTO)</div>
+                            <div className="space-y-2">
+                                <div className="flex justify-between text-sm text-slate-400">
+                                    <span>Fijo mensual</span>
+                                    <span className="text-white font-mono">{formatCurrency(currentPlan.base)}</span>
+                                </div>
+                                <div className="flex justify-between text-sm text-slate-400">
+                                    <span>% sobre Ads ({currentPlan.varPct}%)</span>
+                                    <span className="text-white font-mono">{formatCurrency(variableFee)}</span>
+                                </div>
+                                <div className="flex justify-between items-center mt-3 pt-3 border-t border-white/5">
+                                    <span className="text-xs font-bold text-white uppercase">TOTAL MES 2+</span>
+                                    <strong className="text-xl font-black text-white">{formatCurrency(month2Total)}</strong>
+                                </div>
+                            </div>
+                        </div>
 
-                        <p className="text-[10px] text-center text-slate-500 mt-4 leading-relaxed">
-                           Si tu inversión actual es baja y necesitas bajar pauta para pagar la base, <strong className="text-slate-400">no te conviene</strong>. Preferimos decirlo de frente.
-                        </p>
+                        <div className="mt-auto">
+                            <a 
+                               href={whatsappCalculatorLink} 
+                               target="_blank" 
+                               rel="noopener noreferrer" 
+                               className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5"
+                            >
+                               Aplicar por WhatsApp <ArrowRight className="w-4 h-4" />
+                            </a>
+
+                            <p className="text-[10px] text-center text-slate-500 mt-4 leading-relaxed">
+                               Si necesitas bajar tu inversión para pagar el fee, <strong className="text-slate-400">no somos fit</strong>. Preferimos decírtelo de frente.
+                            </p>
+                        </div>
                      </div>
                   </div>
 
