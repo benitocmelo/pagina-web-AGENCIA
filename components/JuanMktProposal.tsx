@@ -4,12 +4,69 @@ import {
   Check, ChevronRight, BarChart3, Fingerprint, Users, GraduationCap, 
   Briefcase, Info, Gift, CalendarClock, MessageCircle, Tag, Award, 
   Database, Trophy, Star, Rocket, LineChart, ShoppingBag, Target, Wallet,
-  AlertTriangle, CheckCircle2, Microscope
+  AlertTriangle, CheckCircle2, Microscope, FileCheck
 } from 'lucide-react';
+
+// --- SUB-COMPONENT: Credential Card (Handles Image Errors & Clicks) ---
+const CredentialCard: React.FC<{ item: any, onClick: () => void }> = ({ item, onClick }) => {
+  const [imgError, setImgError] = useState(false);
+
+  return (
+    <div 
+      onClick={onClick}
+      className="flex-shrink-0 snap-center w-[220px] md:w-full h-full bg-[#0F0F0F] border border-white/10 rounded-xl p-5 flex flex-col justify-between group hover:border-white/30 transition-all cursor-pointer hover:bg-[#141414]"
+    >
+        {/* Header Visual */}
+        <div className="h-32 w-full flex items-center justify-center mb-4 relative overflow-hidden rounded-lg bg-black/50">
+            {item.type === 'badge' ? (
+                <div className="w-20 h-20 bg-yellow-500/10 rounded-full flex items-center justify-center border border-yellow-500/30 group-hover:scale-110 transition-transform duration-500">
+                    <Trophy className="w-10 h-10 text-yellow-500" />
+                </div>
+            ) : (
+                <>
+                    {!imgError ? (
+                        <img 
+                            src={item.url} 
+                            alt={item.title} 
+                            className="h-full w-auto object-contain group-hover:scale-105 transition-transform duration-500" 
+                            onError={() => setImgError(true)}
+                        />
+                    ) : (
+                        // Placeholder Premium cuando falla la imagen
+                        <div className="absolute inset-0 bg-gradient-to-br from-slate-800 to-slate-900 flex flex-col items-center justify-center text-slate-500">
+                            <FileCheck className="w-8 h-8 mb-2 opacity-50" />
+                            <span className="text-[9px] uppercase tracking-widest font-bold opacity-50">Certificado Verificado</span>
+                        </div>
+                    )}
+                </>
+            )}
+            
+            {/* Hover Hint */}
+            <div className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity">
+                <span className="text-xs font-bold text-white flex items-center gap-1">
+                    <Microscope className="w-3 h-3" /> Ver Credencial
+                </span>
+            </div>
+        </div>
+
+        {/* Text Content */}
+        <div className="text-center w-full">
+            <h4 className="font-bold text-sm text-white mb-1">{item.title}</h4>
+            <div className="text-[10px] text-slate-500 font-bold uppercase tracking-wider opacity-70 mb-2">{item.subtitle}</div>
+            <p className="text-[10px] text-slate-400 leading-snug line-clamp-2">
+                {item.desc}
+            </p>
+        </div>
+    </div>
+  );
+};
 
 const JuanMktProposal: React.FC = () => {
   // State for Calculator
   const [investment, setInvestment] = useState<number>(1000);
+  
+  // State for Modal (Credentials)
+  const [selectedCredential, setSelectedCredential] = useState<string | null>(null);
 
   // Derive plan from investment
   const getPlanFromInvestment = (inv: number): 'starter' | 'growth' | 'scale' => {
@@ -62,7 +119,6 @@ const JuanMktProposal: React.FC = () => {
   };
   
   // Custom WhatsApp link generation for Calculator
-  // NOTE: Replace '573000000000' with the real phone number for the pre-filled message to work correctly via wa.me
   const phoneNumber = "573000000000"; 
   const whatsappMessage = `Hola quiero aplicar al modelo de escalamiento.
 
@@ -72,13 +128,48 @@ Plan de interés: ${currentPlan.name}
 Objetivo en 90 días: [meta]`;
   const whatsappCalculatorLink = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(whatsappMessage)}`;
 
-  // --- CREDENTIALS (UPDATED WITH PROVIDED IMAGES) ---
+  // --- CREDENTIALS DATA (UPDATED WITH FRESH LINKS) ---
   const credentials = [
-    { type: 'badge', title: 'Trayectoria', desc: '+5 Años Exp.', url: '' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo", title: 'Insignia Meta', desc: 'Facebook & IG Ads' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8v2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs", title: 'Certificado Pro', desc: 'Media Buying' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k", title: 'Diploma Avanzado', desc: 'Estrategia Digital' },
-    { type: 'image', url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8v2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w", title: 'Meta Ads Expert', desc: 'Certificación Oficial' }
+    { 
+        id: 1,
+        type: 'image', 
+        title: 'Meta Ads Expert', 
+        subtitle: 'CERTIFICACIÓN OFICIAL',
+        desc: 'Validación oficial de competencias en Meta Ads.',
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w"
+    },
+    { 
+        id: 2,
+        type: 'image', 
+        title: 'Insignia Meta', 
+        subtitle: 'FACEBOOK & IG ADS',
+        desc: 'Estructura, optimización y buenas prácticas para performance.',
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo"
+    },
+    { 
+        id: 3,
+        type: 'badge', 
+        title: 'Trayectoria', 
+        subtitle: '+5 AÑOS EXP.',
+        desc: 'Experiencia real gestionando y escalando cuentas en ecommerce.',
+        url: '' 
+    },
+    { 
+        id: 4,
+        type: 'image', 
+        title: 'Certificado Pro', 
+        subtitle: 'MEDIA BUYING',
+        desc: 'Metodología de testeo, control de costos y escalamiento.',
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs"
+    },
+    { 
+        id: 5,
+        type: 'image', 
+        title: 'Diploma Avanzado', 
+        subtitle: 'ESTRATEGIA DIGITAL',
+        desc: 'Estrategia aplicada a adquisición, embudos y crecimiento.',
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k"
+    }
   ];
 
   return (
@@ -87,6 +178,33 @@ Objetivo en 90 días: [meta]`;
         .scrollbar-hide::-webkit-scrollbar { display: none; }
         .scrollbar-hide { -ms-overflow-style: none; scrollbar-width: none; }
       `}</style>
+
+      {/* --- MODAL FOR CREDENTIALS --- */}
+      {selectedCredential && (
+        <div 
+          className="fixed inset-0 z-[60] bg-black/90 backdrop-blur-md flex items-center justify-center p-4"
+          onClick={() => setSelectedCredential(null)}
+        >
+          <div className="relative max-w-4xl w-full bg-[#101010] border border-white/10 rounded-2xl p-2 md:p-4 shadow-2xl flex flex-col items-center" onClick={(e) => e.stopPropagation()}>
+             <button 
+                onClick={() => setSelectedCredential(null)}
+                className="absolute top-4 right-4 z-10 w-8 h-8 bg-black/50 rounded-full flex items-center justify-center text-white hover:bg-white/20 transition-colors"
+             >
+                <X className="w-5 h-5" />
+             </button>
+             
+             <div className="w-full h-[60vh] md:h-[80vh] flex items-center justify-center bg-black/50 rounded-lg overflow-hidden">
+                <img src={selectedCredential} alt="Certificado" className="max-w-full max-h-full object-contain" />
+             </div>
+             <div className="mt-4 text-center">
+                <div className="flex items-center justify-center gap-2 text-emerald-400 font-bold text-sm uppercase tracking-widest">
+                    <CheckCircle2 className="w-4 h-4" /> Documento Verificado
+                </div>
+                <p className="text-[10px] text-slate-500 mt-1">Copia digital del certificado original.</p>
+             </div>
+          </div>
+        </div>
+      )}
       
       {/* --- HEADER --- */}
       <nav className="fixed w-full z-50 bg-[#050505]/95 backdrop-blur-xl border-b border-white/10 top-0 left-0">
@@ -228,31 +346,32 @@ Objetivo en 90 días: [meta]`;
 
         {/* --- CREDENTIALS WALL (MANUAL SCROLL) --- */}
         <section className="w-full bg-[#0A0A0A] border-y border-white/10 py-12 relative z-10">
-            <div className="max-w-5xl mx-auto px-4 md:px-6 mb-8 flex items-center justify-start">
-                <h3 className="text-base md:text-lg font-bold text-white flex items-center gap-2">
-                    <Award className="text-yellow-500 w-5 h-5" /> Respaldo Técnico & Trayectoria
+            <div className="max-w-5xl mx-auto px-4 md:px-6 mb-8">
+                <h3 className="text-2xl font-bold text-white mb-2">
+                    Credenciales verificables (no promesas)
                 </h3>
+                <p className="text-sm text-slate-400 flex items-center gap-2">
+                    <Award className="text-blue-500 w-4 h-4" /> Certificaciones + experiencia práctica escalando cuentas con Meta Ads en Colombia.
+                </p>
             </div>
-            {/* FIX: Changed item width from fixed w-[180px] to flexible md:w-full to prevent grid overflow on desktop */}
-            <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-5 md:gap-6 md:overflow-visible max-w-5xl mx-auto relative z-20">
-                {credentials.map((item, index) => (
-                    <div key={index} className="flex-shrink-0 snap-center w-[180px] md:w-full h-[220px] bg-[#0F0F0F] border border-white/10 rounded-xl p-4 flex flex-col items-center justify-between group">
-                        <div className="h-28 w-full flex items-center justify-center">
-                            {item.type === 'badge' ? (
-                                <div className="w-20 h-20 bg-yellow-500/20 rounded-full flex items-center justify-center border border-yellow-500/50">
-                                    <Trophy className="w-10 h-10 text-yellow-400" />
-                                </div>
-                            ) : (
-                                <img src={item.url} alt={item.title} className="h-full w-auto object-contain" />
-                            )}
-                        </div>
-                        <div className="text-center w-full pt-3 border-t border-white/5">
-                            <div className={`font-bold text-xs ${item.type === 'badge' ? 'text-yellow-400' : 'text-white'}`}>{item.title}</div>
-                            <div className="text-[9px] text-slate-500 uppercase tracking-wider mt-1">{item.desc}</div>
-                        </div>
-                    </div>
+            
+            {/* GRID OF CARDS */}
+            <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-5 md:gap-4 md:overflow-visible max-w-5xl mx-auto relative z-20">
+                {credentials.map((item) => (
+                    <CredentialCard 
+                        key={item.id} 
+                        item={item} 
+                        onClick={() => item.type === 'image' && setSelectedCredential(item.url)}
+                    />
                 ))}
             </div>
+            
+            <div className="mt-6 text-center">
+                <p className="text-xs text-slate-600 uppercase tracking-widest font-bold">
+                    No vendemos humo: mostramos credenciales y resultados verificables.
+                </p>
+            </div>
+            
             <div className="md:hidden flex justify-center gap-1.5 mt-2 text-xs text-slate-500">
                ← Desliza para ver más →
             </div>
