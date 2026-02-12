@@ -136,15 +136,15 @@ Objetivo en 90 días: [meta]`;
         title: 'Meta Ads Expert', 
         subtitle: 'CERTIFICACIÓN OFICIAL',
         desc: 'Validación oficial de competencias en Meta Ads.',
-        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4MzM1NTYsImV4cCI6MTgwMjM2OTU1Nn0.tGMJVQqOw9GvQj_eMOPonV117E_FqDJqknFVbYXjd1w"
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20132948.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMjk0OC5wbmciLCJpYXQiOjE3NzA4NjA1OTUsImV4cCI6MTgwMjM5NjU5NX0.qskjBqENwUVihVKN1fP_c1qz35F-IDQbOVOomBpNSYA"
     },
     { 
         id: 2,
         type: 'image', 
-        title: 'Insignia Meta', 
-        subtitle: 'FACEBOOK & IG ADS',
-        desc: 'Estructura, optimización y buenas prácticas para performance.',
-        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4MzM0NzcsImV4cCI6MTgwMjM2OTQ3N30.uout_704OpMfny-XrpBnPQl4vMh5wLzFfagN6KNzbGo"
+        title: 'Diploma Avanzado', 
+        subtitle: 'ESTRATEGIA DIGITAL',
+        desc: 'Estrategia aplicada a adquisición, embudos y crecimiento.',
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4NjA2NDMsImV4cCI6MTgwMjM5NjY0M30.xhO0APqziIbP2z7S6A_Hhm-Tz6GHSD9nJKU50kMO1L4"
     },
     { 
         id: 3,
@@ -160,15 +160,15 @@ Objetivo en 90 días: [meta]`;
         title: 'Certificado Pro', 
         subtitle: 'MEDIA BUYING',
         desc: 'Metodología de testeo, control de costos y escalamiento.',
-        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4MzM1MTUsImV4cCI6MTgwMjM2OTUxNX0.DPZmg1h8YKP3xLx7EhflbG7hhQa_fNIMLQ5Pvx0c6qs"
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133013.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAxMy5wbmciLCJpYXQiOjE3NzA4NjA2NTksImV4cCI6MTgwMjM5NjY1OX0.jU0BDLh4EuUoyMdCuMc9fHmNElUEhHBKbVzznL2yzUg"
     },
     { 
         id: 5,
         type: 'image', 
-        title: 'Diploma Avanzado', 
-        subtitle: 'ESTRATEGIA DIGITAL',
-        desc: 'Estrategia aplicada a adquisición, embudos y crecimiento.',
-        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/Captura%20de%20pantalla%202026-01-14%20133003.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vQ2FwdHVyYSBkZSBwYW50YWxsYSAyMDI2LTAxLTE0IDEzMzAwMy5wbmciLCJpYXQiOjE3NzA4MzM1MzcsImV4cCI6MTgwMjM2OTUzN30.249VcQNUtLxSFoZNosjz-2i9FSMZuTMYxfLOdpUcR7k"
+        title: 'Insignia Meta', 
+        subtitle: 'FACEBOOK & IG ADS',
+        desc: 'Estructura, optimización y buenas prácticas para performance.',
+        url: "https://erxxuotslhjluwrlxmyx.supabase.co/storage/v1/object/sign/LANDING%20POST%20PARTO/como-vender-por-facebook-e-instagram-ads.png?token=eyJraWQiOiJzdG9yYWdlLXVybC1zaWduaW5nLWtleV9hZWQxZTBkNS1mNzcwLTRmMDMtODRhYy1jYTk2YzZkZmM1NDQiLCJhbGciOiJIUzI1NiJ9.eyJ1cmwiOiJMQU5ESU5HIFBPU1QgUEFSVE8vY29tby12ZW5kZXItcG9yLWZhY2Vib29rLWUtaW5zdGFncmFtLWFkcy5wbmciLCJpYXQiOjE3NzA4NjA2NzMsImV4cCI6MTgwMjM5NjY3M30.Ym0v_2upC4U79dBx2_S80Q_LRY7ZNjZ8uvd7Ix8PxdE"
     }
   ];
 
@@ -355,7 +355,7 @@ Objetivo en 90 días: [meta]`;
                 </p>
             </div>
             
-            {/* GRID OF CARDS */}
+            {/* GRID OF CARDS - UPDATED TO 5 COLUMNS */}
             <div className="flex overflow-x-auto gap-4 px-4 md:px-0 pb-6 snap-x snap-mandatory scrollbar-hide md:grid md:grid-cols-5 md:gap-4 md:overflow-visible max-w-5xl mx-auto relative z-20">
                 {credentials.map((item) => (
                     <CredentialCard 
@@ -553,13 +553,20 @@ Objetivo en 90 días: [meta]`;
                   <div className="lg:col-span-7 space-y-8">
                      {/* Slider */}
                      <div className="bg-white/5 p-6 rounded-2xl border border-white/5">
-                        <div className="flex justify-between items-end mb-6">
-                           <div>
-                              <p className="text-blue-400 text-xs font-bold uppercase tracking-wider mb-2">1. Selecciona tu Plan según tu inversión en Ads</p>
-                              <p className="text-xs text-slate-500">Mueve el slider: te ubicamos automáticamente en el plan correcto.</p>
+                        <div className="flex justify-between items-center mb-8 gap-4">
+                           <div className="max-w-[65%]">
+                              <h3 className="text-blue-500 font-bold text-sm md:text-base uppercase leading-tight tracking-wide">
+                                 ¿Cuánto inviertes al mes en Ads?
+                              </h3>
+                              <p className="text-slate-500 text-xs mt-2 leading-relaxed">
+                                 Mueve el slider y te asignamos el plan que te corresponde.
+                              </p>
                            </div>
-                           <div className="text-3xl font-bold text-white tracking-tight">{formatCurrency(investment)}</div>
+                           <div className="text-4xl md:text-5xl font-bold text-white tracking-tighter">
+                                {formatCurrency(investment)}
+                           </div>
                         </div>
+                        
                         <input 
                           type="range" 
                           min="0" 
@@ -569,13 +576,13 @@ Objetivo en 90 días: [meta]`;
                           onChange={(e) => setInvestment(Number(e.target.value))}
                           className="w-full h-2 bg-slate-800 rounded-full appearance-none cursor-pointer accent-blue-500 hover:accent-blue-400 transition-all"
                         />
-                        <div className="flex justify-between mt-3 text-xs text-slate-500 font-mono mb-6">
+                        <div className="flex justify-between mt-3 text-xs text-slate-500 font-mono mb-8">
                            <span>$0</span><span>$5k</span><span>$10k</span><span>$15k</span><span>$20k+</span>
                         </div>
                          
                          {/* DISCLAIMER NO PRECIO */}
-                        <div className="text-[10px] text-slate-400/80 bg-black/20 p-2 rounded text-center border border-white/5">
-                            Esto <strong>NO es el precio</strong>. Es el plan que te corresponde según tu inversión.
+                        <div className="text-[10px] text-slate-400/80 bg-[#0A0A0A] p-4 rounded-lg text-center border border-white/5">
+                            Esto <strong className="text-slate-200">NO es el precio</strong>. Es el plan que te corresponde según tu inversión.
                         </div>
                      </div>
 
