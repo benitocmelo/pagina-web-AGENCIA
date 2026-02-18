@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { 
   Calculator, Zap, TrendingUp, ShieldCheck, ArrowRight, X, Menu, 
   Check, ChevronRight, BarChart3, Fingerprint, Users, GraduationCap, 
@@ -11,6 +11,7 @@ import {
 declare global {
   interface Window {
     fbq: any;
+    _fbq: any;
   }
 }
 
@@ -69,24 +70,62 @@ const CredentialCard: React.FC<{ item: any, onClick: () => void }> = ({ item, on
 };
 
 const JuanMktProposal: React.FC = () => {
+  // --- INICIO CÓDIGO DEL PIXEL (EL PORTERO) ---
+  useEffect(() => {
+    // 1. Verificamos si ya existe para no duplicar
+    if (typeof window !== 'undefined' && !window.fbq) {
+      
+      // 2. Definimos la función fbq
+      const n: any = (window.fbq = function () {
+        n.callMethod ? n.callMethod.apply(n, arguments) : n.queue.push(arguments);
+      });
+      if (!window._fbq) window._fbq = n;
+      n.push = n;
+      n.loaded = true;
+      n.version = '2.0';
+      n.queue = [];
+
+      // 3. Creamos el script y lo inyectamos
+      const t = document.createElement('script');
+      t.async = true;
+      t.src = 'https://connect.facebook.net/en_US/fbevents.js';
+      const s = document.getElementsByTagName('script')[0];
+      s.parentNode?.insertBefore(t, s);
+
+      // 4. Iniciamos el Pixel con TU ID
+      n('init', '1398927074622250');
+      n('track', 'PageView');
+      
+      console.log("🟢 Pixel Inyectado forzosamente por React");
+    }
+  }, []); // El array vacío [] asegura que solo pase una vez al cargar
+  // --- FIN CÓDIGO DEL PIXEL ---
+
   // State for Calculator
   const [investment, setInvestment] = useState<number>(1000);
   
   // State for Modal (Credentials)
   const [selectedCredential, setSelectedCredential] = useState<string | null>(null);
 
-  // 2. Función Inteligente para enviar el evento (Francotirador)
+  // 2. Función Francotirador (Mejorada)
   const handleLeadClick = (label: string) => {
-    // Verificamos si el pixel está cargado para evitar errores
-    if (typeof window !== 'undefined' && window.fbq) {
-      window.fbq('track', 'Lead', {
-        content_name: label,
-        content_category: 'WhatsApp Contact',
-        value: 10.00, // Valor simbólico para el algoritmo
-        currency: 'USD'
-      });
-      console.log(`⚡ Evento Lead enviado a Facebook: ${label}`);
-    }
+    // Si fbq existe, disparamos. Si no, esperamos 500ms y reintentamos (Safety Check)
+    const track = () => {
+      if (typeof window !== 'undefined' && window.fbq) {
+        window.fbq('track', 'Lead', {
+          content_name: label,
+          content_category: 'WhatsApp Contact',
+          value: 10.00, 
+          currency: 'USD'
+        });
+        console.log(`⚡ Evento Lead enviado: ${label}`);
+      } else {
+        console.warn("⚠️ Pixel aún cargando, evento guardado en cola.");
+      }
+    };
+
+    track();
+    // No bloqueamos la redirección, pero aseguramos que el request salga
   };
 
   // Derive plan from investment
