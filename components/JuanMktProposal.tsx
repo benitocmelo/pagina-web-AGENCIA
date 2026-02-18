@@ -7,6 +7,13 @@ import {
   AlertTriangle, CheckCircle2, Microscope, FileCheck
 } from 'lucide-react';
 
+// 1. Declaración global para evitar errores de TypeScript con fbq
+declare global {
+  interface Window {
+    fbq: any;
+  }
+}
+
 // --- SUB-COMPONENT: Credential Card (Handles Image Errors & Clicks) ---
 const CredentialCard: React.FC<{ item: any, onClick: () => void }> = ({ item, onClick }) => {
   const [imgError, setImgError] = useState(false);
@@ -67,6 +74,20 @@ const JuanMktProposal: React.FC = () => {
   
   // State for Modal (Credentials)
   const [selectedCredential, setSelectedCredential] = useState<string | null>(null);
+
+  // 2. Función Inteligente para enviar el evento (Francotirador)
+  const handleLeadClick = (label: string) => {
+    // Verificamos si el pixel está cargado para evitar errores
+    if (typeof window !== 'undefined' && window.fbq) {
+      window.fbq('track', 'Lead', {
+        content_name: label,
+        content_category: 'WhatsApp Contact',
+        value: 10.00, // Valor simbólico para el algoritmo
+        currency: 'USD'
+      });
+      console.log(`⚡ Evento Lead enviado a Facebook: ${label}`);
+    }
+  };
 
   // Derive plan from investment
   const getPlanFromInvestment = (inv: number): 'starter' | 'growth' | 'scale' => {
@@ -218,6 +239,7 @@ Objetivo en 90 días: [meta]`;
             href={links.whatsapp_general}
             target="_blank"
             rel="noopener noreferrer"
+            onClick={() => handleLeadClick('Header Contact Button')}
             className="relative z-50 bg-white text-black px-4 py-2 rounded-full font-bold text-xs md:text-sm hover:bg-blue-50 transition-colors flex items-center gap-2 pointer-events-auto cursor-pointer"
           >
             <MessageCircle className="w-4 h-4" />
@@ -681,6 +703,7 @@ Objetivo en 90 días: [meta]`;
                                href={whatsappCalculatorLink} 
                                target="_blank" 
                                rel="noopener noreferrer" 
+                               onClick={() => handleLeadClick('Calculator Application')}
                                className="w-full py-4 bg-gradient-to-r from-blue-600 to-blue-500 hover:from-blue-500 hover:to-blue-400 text-white font-bold rounded-xl flex items-center justify-center gap-2 transition-all shadow-lg shadow-blue-900/20 hover:shadow-blue-900/40 hover:-translate-y-0.5"
                             >
                                Aplicar por WhatsApp <ArrowRight className="w-4 h-4" />
@@ -777,7 +800,13 @@ Objetivo en 90 días: [meta]`;
                         </div>
                       </div>
 
-                      <a href={links.whatsapp_consultoria} target="_blank" rel="noopener noreferrer" className="w-full bg-white/5 border border-white/10 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-indigo-600 hover:border-indigo-600 transition-all cursor-pointer group-hover:bg-indigo-600/10">
+                      <a 
+                        href={links.whatsapp_consultoria} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        onClick={() => handleLeadClick('Diagnostico Escalamiento')}
+                        className="w-full bg-white/5 border border-white/10 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-indigo-600 hover:border-indigo-600 transition-all cursor-pointer group-hover:bg-indigo-600/10"
+                      >
                           Agendar por WhatsApp <ArrowRight className="w-4 h-4" />
                       </a>
                       
@@ -818,7 +847,13 @@ Objetivo en 90 días: [meta]`;
                         </div>
                       </div>
 
-                      <a href={links.whatsapp_mentoria} target="_blank" rel="noopener noreferrer" className="w-full bg-blue-600 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-500 shadow-lg shadow-blue-900/50 cursor-pointer">
+                      <a 
+                        href={links.whatsapp_mentoria} 
+                        target="_blank" 
+                        rel="noopener noreferrer" 
+                        onClick={() => handleLeadClick('Mentoria High Ticket')}
+                        className="w-full bg-blue-600 text-white text-sm font-bold py-3 rounded-lg flex items-center justify-center gap-2 hover:bg-blue-500 shadow-lg shadow-blue-900/50 cursor-pointer"
+                      >
                           Aplicar al Programa <ArrowRight className="w-4 h-4" />
                       </a>
                       
@@ -844,7 +879,13 @@ Objetivo en 90 días: [meta]`;
           
           {/* BOTON FOOTER - Z-50 */}
           <div className="relative z-50 inline-block p-1 rounded-full bg-gradient-to-r from-blue-600 to-indigo-600 mb-12">
-            <a href={links.whatsapp_general} target="_blank" rel="noopener noreferrer" className="px-10 py-4 bg-black rounded-full text-white font-bold text-lg hover:bg-white/10 transition-colors flex items-center gap-3 cursor-pointer pointer-events-auto">
+            <a 
+                href={links.whatsapp_general} 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                onClick={() => handleLeadClick('Footer Contact Button')}
+                className="px-10 py-4 bg-black rounded-full text-white font-bold text-lg hover:bg-white/10 transition-colors flex items-center gap-3 cursor-pointer pointer-events-auto"
+            >
                Hablar con Juan <MessageCircle className="w-5 h-5" />
             </a>
           </div>
